@@ -8,7 +8,7 @@ namespace Assets.Scripts
     public class MockItem
     {
         public int CompontentID { get; set; }
-        public string CompontentName { get; set; }
+        public string ComponentName { get; set; }
         public string ComponentDesc { get; set; }
         public string ComponentUnit { get; set; }
         public int InstructionID { get; set; }
