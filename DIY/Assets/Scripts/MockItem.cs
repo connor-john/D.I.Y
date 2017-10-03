@@ -5,32 +5,33 @@ using System.Text;
 
 namespace Assets.Scripts
 {
+    [Serializable]
     public class MockItem
     {
-        public int CompontentID { get; set; }
-        public string ComponentName { get; set; }
-        public string ComponentDesc { get; set; }
-        public string ComponentUnit { get; set; }
-        public int InstructionID { get; set; }
-        public string InstructionDesc { get; set; }
-        public int SequenceNumber { get; set; }
-        public string WhenInstructionUsedFrom { get; set; } // Could turn this into a datetime
-        public string WhenInstructionUsedTo { get; set; }   // Could turn this into a datetime
-        public int QuantityUsed { get; set; }
-        public int ProcessID { get; set; }
-        public string ProcessName { get; set; }
-        public string ProcessDescription { get; set; }
-        public int Difficulty { get; set; }
-        public int ProcessDurationMinutes { get; set; }
-        public int ProcessTypeID { get; set; }
-        public string ProcessTypeName { get; set; }
-        public string ProcessTypeDescription { get; set; }
-        public int ExecutionID { get; set; }
-        public string WhenExecutionStarted { get; set; }    // Could turn this into a datetime
-        public string WhenExecutionFinished { get; set; }   // Could turn this into a datetime
-        public int PersonID { get; set; }
-        public string PersonUserName { get; set; }
-        public string PersonEmail { get; set; }
-        public string PersonName { get; set; }
+        public int CompontentID;
+        public string ComponentName;
+        public string ComponentDesc;
+        public string ComponentUnit;
+        public int InstructionID;
+        public string InstructionDesc;
+        public int SequenceNumber;
+        public string WhenInstructionUsedFrom;
+        public string WhenInstructionUsedTo;   
+        public int QuantityUsed;
+        public int ProcessID;
+        public string ProcessName;
+        public string ProcessDescription;
+        public int Difficulty;
+        public int ProcessDurationMinutes;
+        public int ProcessTypeID;
+        public string ProcessTypeName;
+        public string ProcessTypeDescription;
+        public int ExecutionID;
+        public string WhenExecutionStarted;  
+        public string WhenExecutionFinished; 
+        public int PersonID;
+        public string PersonUserName;
+        public string PersonEmail;
+        public string PersonName;
     }
 }
