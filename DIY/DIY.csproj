@@ -341,6 +341,30 @@
     <Compile Include="Assets\HoloToolkit\Utilities\Scripts\VectorRollingStatistics.cs" />
     <Compile Include="Assets\HoloToolkit\Utilities\Scripts\WorldAnchorManager.cs" />
     <Compile Include="Assets\HoloToolkit\Utilities\Shaders\FastConfigurable\Scripts\CalibrationSpace.cs" />
+    <Compile Include="Assets\HttpClient\Dispatcher\Dispatcher.cs" />
+    <Compile Include="Assets\HttpClient\Dispatcher\IDispatcher.cs" />
+    <Compile Include="Assets\HttpClient\Enums\ContentReadAction.cs" />
+    <Compile Include="Assets\HttpClient\Enums\HttpAction.cs" />
+    <Compile Include="Assets\HttpClient\Enums\HttpCompletionOption.cs" />
+    <Compile Include="Assets\HttpClient\Example\ExampleSceneManagerController.cs" />
+    <Compile Include="Assets\HttpClient\HttpActions\HttpBase.cs" />
+    <Compile Include="Assets\HttpClient\HttpActions\HttpDelete.cs" />
+    <Compile Include="Assets\HttpClient\HttpActions\HttpGet.cs" />
+    <Compile Include="Assets\HttpClient\HttpActions\HttpPatch.cs" />
+    <Compile Include="Assets\HttpClient\HttpActions\HttpPost.cs" />
+    <Compile Include="Assets\HttpClient\HttpActions\HttpPut.cs" />
+    <Compile Include="Assets\HttpClient\HttpClient.cs" />
+    <Compile Include="Assets\HttpClient\HttpContent\ByteArrayContent.cs" />
+    <Compile Include="Assets\HttpClient\HttpContent\FormUrlEncodedContent.cs" />
+    <Compile Include="Assets\HttpClient\HttpContent\IHttpContent.cs" />
+    <Compile Include="Assets\HttpClient\HttpContent\MultiPartContent.cs" />
+    <Compile Include="Assets\HttpClient\HttpContent\StreamContent.cs" />
+    <Compile Include="Assets\HttpClient\HttpContent\StringContent.cs" />
+    <Compile Include="Assets\HttpClient\Messages\HttpResponseMessage.cs" />
+    <Compile Include="Assets\HttpClient\Messages\UploadStatusMessage.cs" />
+    <Compile Include="Assets\Scripts\GetData.cs" />
+    <Compile Include="Assets\Scripts\JsonHelper.cs" />
+    <Compile Include="Assets\Scripts\MockItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\HoloToolkit\Input\Shaders\Cursor.shader" />
@@ -377,6 +401,7 @@
     <None Include="Assets\HoloToolkit\Utilities\Shaders\Obsolete\VertexLitConfigurableTransparent.shader" />
     <None Include="Assets\HoloToolkit\Utilities\Shaders\Obsolete\macro.cginc" />
     <None Include="Assets\HoloToolkit\Utilities\Shaders\WindowOcclusion.shader" />
+    <None Include="Assets\HttpClient\readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
