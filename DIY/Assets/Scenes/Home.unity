@@ -109,6 +109,7 @@ NavMeshSettings:
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1001 &17143949
 Prefab:
   m_ObjectHideFlags: 0
@@ -152,6 +153,8 @@ Prefab:
   m_ParentPrefab: {fileID: 100100000, guid: 90749889d87976143a9e21072d2434b4, type: 2}
   m_IsPrefabParent: 0
 =======
+=======
+>>>>>>> 508e54393060a2c2dc813bd11935ca5da3f8e0e4
 --- !u!1 &3815282
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,6 +196,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DatabaseConnection: http://diy-320.azurewebsites.net/tables/MockDB?zumo-api-version=2.0.0
+<<<<<<< HEAD
+>>>>>>> 508e54393060a2c2dc813bd11935ca5da3f8e0e4
+=======
 >>>>>>> 508e54393060a2c2dc813bd11935ca5da3f8e0e4
 --- !u!1 &73417531
 GameObject:
