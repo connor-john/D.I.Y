@@ -1,7 +1,6 @@
 ﻿using Assets.Scripts;
 using System.Collections;
 using UnityEngine;
-using CI.HttpClient;
 
 public class GetData : MonoBehaviour {
     public string _DatabaseConnection = @"http://diy-320.azurewebsites.net/tables/MockDB?zumo-api-version=2.0.0";
@@ -10,21 +9,26 @@ public class GetData : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        GetItems();
+        WWW www = new WWW(_DatabaseConnection);
+        StartCoroutine(WaitForRequest(www));
     }
 
-    // Async call, will complete in the background and set _fetchedItems to true once complete.
-    public void GetItems()
+    IEnumerator WaitForRequest(WWW www)
     {
-        HttpClient client = new HttpClient();
-        client.GetByteArray(new System.Uri(_DatabaseConnection), HttpCompletionOption.AllResponseContent, (r) =>
+        yield return www;
+
+        // check for errors
+        if (www.error == null)
         {
-            string dataString = System.Text.Encoding.UTF8.GetString(r.Data);
-            dataString = JsonHelper.AppendWrapper(dataString);
+            var dataString = JsonHelper.AppendWrapper(www.text);
             _items = JsonHelper.FromJson<MockItem>(dataString);
 
             ItemsFetched();
-        });
+        }
+        else
+        {
+            Debug.Log("WWW Error: " + www.error);
+        }
     }
 
     // Update is called once per frame
