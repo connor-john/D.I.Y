@@ -1,40 +1,47 @@
 ﻿using Assets.Scripts;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class GetData : MonoBehaviour {
+public class GetData : MonoBehaviour
+{
     public string _DatabaseConnection = @"http://diy-320.azurewebsites.net/tables/MockDB?zumo-api-version=2.0.0";
     MockItem[] _items;
     bool _fetchedItems = false;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         WWW www = new WWW(_DatabaseConnection);
-        StartCoroutine(WaitForRequest(www));
+
+        StartCoroutine(GetResponse());
     }
 
-    IEnumerator WaitForRequest(WWW www)
+    IEnumerator GetResponse()
     {
-        yield return www;
-
-        // check for errors
-        if (www.error == null)
+        using (UnityWebRequest www = UnityWebRequest.Get(_DatabaseConnection))
         {
-            var dataString = JsonHelper.AppendWrapper(www.text);
-            _items = JsonHelper.FromJson<MockItem>(dataString);
+            yield return www.Send();
 
-            ItemsFetched();
-        }
-        else
-        {
-            Debug.Log("WWW Error: " + www.error);
+            if (www.isNetworkError || www.isHttpError)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                var dataString = JsonHelper.AppendWrapper(www.downloadHandler.text);
+                _items = JsonHelper.FromJson<MockItem>(dataString);
+
+                ItemsFetched();
+            }
         }
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
 
-	}
+    }
 
     // Method called after items have been fetched
     // Can use _fetchedItems boolean to check in other methods such as update
@@ -59,7 +66,7 @@ public class GetData : MonoBehaviour {
     public ArrayList GetComponentNames()
     {
         var compNames = new ArrayList();
-        foreach(var p in _items)
+        foreach (var p in _items)
         {
             compNames.Add(p.ComponentName);
         }
