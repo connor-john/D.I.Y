@@ -6,8 +6,8 @@ using UnityEngine.Networking;
 public class GetData : MonoBehaviour
 {
     public string _DatabaseConnection = @"http://diy-320.azurewebsites.net/tables/MockDB?zumo-api-version=2.0.0";
-    MockItem[] _items;
-    bool _fetchedItems = false;
+    public MockItem[] _items;
+    public bool _fetchedItems = false;
 
     // Use this for initialization
     void Start()
@@ -17,6 +17,7 @@ public class GetData : MonoBehaviour
         StartCoroutine(GetResponse());
     }
 
+    // Get data and parse it into objects
     IEnumerator GetResponse()
     {
         using (UnityWebRequest www = UnityWebRequest.Get(_DatabaseConnection))
@@ -51,7 +52,7 @@ public class GetData : MonoBehaviour
         Debug.Log("First process item name is: " + _items[0].ProcessName);
     }
 
-    public ArrayList GetProducts()
+    public ArrayList GetItems()
     {
         var productsList = new ArrayList();
         foreach (var p in _items)
