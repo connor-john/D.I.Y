@@ -18,17 +18,20 @@ public class UIManager : MonoBehaviour {
         // Quick and dirty way to wait for data to load
         StartCoroutine(waitForTime());
 
-        // Create items based on process name from MockItem
-        foreach (var item in data)
+        if (GameObject.Find("ResultItemButton(Clone)") == null)
         {
-            GameObject resultItemButton = (GameObject)Instantiate(Resources.Load("ResultItemButton"));
-            resultItemButton.GetComponentInChildren<Text>().text = item.ProcessName;
-            resultItemButton.transform.SetParent(GameObject.Find("SearchPanel").transform);
-            resultItemButton.transform.localScale = new Vector3(1, 1, 0);
-            resultItemButton.transform.localPosition = new Vector3(xPos, yPos, 0);
+            // Create items based on process name from MockItem
+            foreach (var item in data)
+            {
+                GameObject resultItemButton = (GameObject)Instantiate(Resources.Load("ResultItemButton"));
+                resultItemButton.GetComponentInChildren<Text>().text = item.ProcessName;
+                resultItemButton.transform.SetParent(GameObject.Find("SearchPanel").transform, false);
+                resultItemButton.transform.localPosition = new Vector3(xPos, yPos, 0);
 
-            yPos -= 35;
+                yPos -= 35;
+            }
         }
+        
     }
 
     IEnumerator waitForTime()
